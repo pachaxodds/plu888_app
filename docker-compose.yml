@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:17-alpine
+    container_name: plu888-app
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: plu888
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: plu888-app
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:

@@ -1,0 +1,47 @@
+<div class="w-full">
+  <% if notice.present? %>
+    <h1 class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-md inline-block" id="notice"><%= notice %></h1>
+  <% end %>
+
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl text-blue-600">รายชื่อพนักงาน</h1>
+    <%= link_to "+ เพิ่มพนักงาน", new_admin_path, class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white block font-medium" %>
+  </div>
+
+  <div class="mt-8 flex flex-col sm:flex-row text-bold text-xl">
+    <div class="min-w-3/5">
+      <p>รายชื่อ</p>
+    </div>
+    <div class="min-w-1/5">
+      <p>ตำแหน่ง</p>
+    </div>
+    <div class="min-w-1/5">
+      <p>เงินเดือน</p>
+    </div>
+  </div>
+  <div class="w-full h-px bg-black mt-2"></div>
+
+<% @profiles.each do |profile| %>
+  <div class="py-3 border-b border-gray-200 last:border-0">
+    <div class="flex flex-col sm:flex-row items-center">
+      
+      <div class="w-full min-w-3/5">
+        <p><%= profile.name %></p>
+      </div>
+      
+      <div class="w-full min-w-1/5 text-gray-600">
+        <p><%= profile.role %></p>
+      </div>
+      
+      <div class="w-full min-w-1/5 flex justify-between items-center">
+        <span>
+          <%= number_to_currency(profile.income, unit: "", precision: 2) %>
+        </span>
+        <%= link_to "แก้ไข", edit_admin_path(profile), class: "text-blue-600" %>
+      </div>
+      
+    </div>
+  </div>
+<% end %>
+
+</div>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <%= yield :head %>
+  </head>
+
+  <body class="<%= controller_name == 'portal' ? 'bg-blue-500' : 'bg-gray-50' %>">
+    
+    <% unless controller_name == 'portal' %>
+      <nav class="bg-white border-b border-gray-200 fixed top-0 w-full z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex justify-between h-16">
+            <div class="flex">
+              <div class="flex-shrink-0 flex items-center">
+                <a class="text-xl font-bold text-blue-600">บริษัท แจ่มแมว จำกัด</a>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4"> 
+              <span class="text-sm font-medium text-gray-700">
+                <% if controller_name == 'profiles' %>
+                  สวัสดี, คุณนงเยาว์
+                <% elsif controller_name == 'employee' %>
+                  สวัสดี, คุณพชรวิทย์
+                <% else %>
+                  สวัสดี, ยินดีต้อนรับ
+                <% end %>
+              </span>
+
+              <%= link_to root_path, class: "flex justify-center py-1.5 px-3 border border-blue-500 text-xs font-bold rounded-lg text-blue-500 bg-transparent hover:bg-red-50 transition-colors" do %>
+                ออกจากระบบ
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </nav>
+    <% end %>
+
+    <main class="max-w-7xl mx-auto <%= controller_name == 'portal' ? 'mt-0' : 'mt-20' %> p-6">
+      <%= yield %>
+    </main>
+
+  </body>
+</html>

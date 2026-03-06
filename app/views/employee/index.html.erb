@@ -1,0 +1,73 @@
+<% @today_check = Attendance.where(employee_list_id: 16)
+                           .where(check_in_at: Time.zone.now.all_day)
+                           .last
+  
+  @status = 0
+  if @today_check
+    @status = @today_check.check_out_at.present? ? 2 : 1
+  end %>
+
+<div class="flex justify-center" 
+     data-controller="income" 
+     data-income-income-value="<%= @employee&.income || 0 %>">
+  
+  <div class="max-w-md w-full text-center space-y-8 p-10 bg-white rounded-2xl shadow-xl border border-gray-100" 
+       data-controller="timestamp"
+       data-timestamp-status-value="<%= @status %>"> 
+    
+    <h2 class="text-2xl font-extrabold text-black">ลงเวลาทำงาน</h2>
+    
+    <div data-timestamp-target="display" class="text-lg font-mono text-blue-600 font-bold min-h-6">
+      <% if @status == 1 %>
+        เข้างานเมื่อ: <%= @today_check.check_in_at.strftime("%H:%M") %>
+      <% elsif @status == 2 %>
+        ออกงานเรียบร้อยแล้ว (<%= @today_check.check_out_at.strftime("%H:%M") %>)
+      <% end %>
+    </div>
+
+    <button data-timestamp-target="button"
+            data-action="click->timestamp#stamp" 
+            <%= "disabled" if @status == 2 %> 
+            class="mt-4 group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white transition-all 
+                   <%= @status == 1 ? "bg-red-600 hover:bg-red-700" : "bg-blue-600 hover:bg-blue-700" %> 
+                   disabled:bg-gray-400 disabled:cursor-not-allowed">
+      <% if @status == 0 %>
+        เข้างาน
+      <% elsif @status == 1 %>
+        ออกงาน
+      <% else %>
+        บันทึกเวลาครบแล้ว
+      <% end %>
+    </button>
+  </div>
+
+  <div class="w-12"></div>
+
+  <div class="max-w-md w-full text-center space-y-8 p-10 bg-white rounded-2xl shadow-xl border border-gray-100">
+    <h2 class="text-2xl font-extrabold text-black">คำนวณเงินได้รายเดือน</h2>
+    
+    <div class="text-left w-full space-y-4">
+      <%= render "employee/form" %>
+
+      <h2 class="mt-4 font-bold text-gray-800">เงินค่า OT รวม:</h2>
+      <div data-income-target="otPay" class="text-lg font-mono">
+        0.00 บาท
+      </div>
+
+      <h2 class="mt-4 font-bold text-gray-800">ภาษีที่หัก:</h2>
+      <div data-income-target="taxAmount" class="text-lg font-mono">
+        0.00 บาท
+      </div>
+
+      <h2 class="mt-4 font-bold text-gray-800">เงินเดือนรวมที่จะได้รับ:</h2>
+      <div data-income-target="totalIncome" class="text-2xl font-bold">
+        0.00 บาท
+      </div>
+
+      <div data-action="click->income#calculate" 
+           class="mt-8 group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-bold rounded-lg text-white bg-blue-600 hover:bg-blue-700 cursor-pointer transition-colors">
+        คำนวณรายได้
+      </div>
+    </div>
+  </div>
+</div>
