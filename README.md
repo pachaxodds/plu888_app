@@ -17,3 +17,12 @@ bin/dev
 ```
 
 แล้วเข้าไปที่ http://localhost:3000/
+
+3. หากต้องการเข้า Database ให้ใช้ connection นี้
+
+```
+Port: 5432
+User: plu888
+Password: password
+Database: plu888-app
+```
