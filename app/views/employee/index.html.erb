@@ -7,7 +7,7 @@
     @status = @today_check.check_out_at.present? ? 2 : 1
   end %>
 
-<div class="flex justify-center" 
+<div class="flex justify-center items-center" 
      data-controller="income" 
      data-income-income-value="<%= @employee&.income || 0 %>">
   
