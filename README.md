@@ -1,24 +1,19 @@
-# README
+# Readme
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+🚀 ระบบจัดการพนักงานของบริษัท แจ่มแมว จำกัด
 
-Things you may want to cover:
+วิธีรัน
 
-* Ruby version
+1. เปิด Docker ขึ้นมาแล้วรันคำสั่ง
 
-* System dependencies
+```
+docker compose up -d
+```
 
-* Configuration
+2. รันคำสั่งเพื่อเปิดหน้าเว็บ
 
-* Database creation
+```
+bin/dev
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+แล้วเข้าไปที่ http://localhost:3000/
