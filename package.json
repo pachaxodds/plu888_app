@@ -1,0 +1,36 @@
+{
+  "name": "plu888_app",
+  "version": "1.0.0",
+  "description": "🚀 ระบบจัดการพนักงานของบริษัท แจ่มแมว จำกัด",
+  "main": "jest.config.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pachaxodds/plu888_app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/pachaxodds/plu888_app/issues"
+  },
+  "homepage": "https://github.com/pachaxodds/plu888_app#readme",
+  "devDependencies": {
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.0",
+    "babel-jest": "^30.2.0",
+    "jest": "^30.2.0",
+    "jest-environment-jsdom": "^30.2.0",
+    "jsdom": "^28.1.0"
+  },
+  "dependencies": {
+    "@hotwired/stimulus": "^3.2.2"
+  }
+}
