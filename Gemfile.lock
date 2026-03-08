@@ -146,9 +146,7 @@ GEM
     mcp (0.8.0)
       json-schema (>= 4.1)
     mini_mime (1.1.5)
-    minitest (6.0.2)
-      drb (~> 2.0)
-      prism (~> 1.5)
+    minitest (5.27.0)
     msgpack (1.8.0)
     net-imap (0.6.3)
       date
@@ -281,13 +279,11 @@ GEM
       rubocop-performance (>= 1.24)
       rubocop-rails (>= 2.30)
     ruby-progressbar (1.13.0)
-    rubyzip (3.2.2)
+    rubyzip (2.4.1)
     securerandom (0.4.1)
-    selenium-webdriver (4.41.0)
-      base64 (~> 0.2)
-      logger (~> 1.4)
+    selenium-webdriver (4.9.0)
       rexml (~> 3.2, >= 3.2.5)
-      rubyzip (>= 1.2.2, < 4.0)
+      rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
     solid_cable (3.0.12)
       actioncable (>= 7.2)
@@ -376,12 +372,13 @@ DEPENDENCIES
   debug
   importmap-rails
   jbuilder
+  minitest (~> 5.0, < 6.0)
   pg
   propshaft
   puma (>= 5.0)
   rails (~> 8.0.1)
   rubocop-rails-omakase
-  selenium-webdriver
+  selenium-webdriver (= 4.9.0)
   solid_cable
   solid_cache
   solid_queue

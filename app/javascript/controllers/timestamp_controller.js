@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus";
 
-export default class extends Controller {
+export default class TimestampController extends Controller {
   static targets = ["display", "button"];
   static values = { status: Number }; // 0=ยังไม่เข้า, 1=เข้าแล้ว, 2=ออกแล้ว
 
@@ -11,8 +11,10 @@ export default class extends Controller {
   async stamp() {
     const now = new Date();
     const timeString = now.toLocaleTimeString("th-TH", {
+      timeZone: "Asia/Bangkok",
       hour: "2-digit",
       minute: "2-digit",
+      hour12: false,
     });
 
     if (this.statusValue === 0) {

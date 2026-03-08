@@ -11,13 +11,13 @@
      data-controller="income" 
      data-income-income-value="<%= @employee&.income || 0 %>">
   
-  <div class="max-w-md w-full text-center space-y-8 p-10 bg-white rounded-2xl shadow-xl border border-gray-100" 
+  <div class="max-w-md w-full text-center space-y-8 p-10 rounded-2xl shadow-xl border border-gray-100" 
        data-controller="timestamp"
        data-timestamp-status-value="<%= @status %>"> 
     
-    <h2 class="text-2xl font-extrabold text-black">ลงเวลาทำงาน</h2>
+    <h2 class="text-2xl font-extrabold">ลงเวลาทำงาน</h2>
     
-    <div data-timestamp-target="display" class="text-lg font-mono text-blue-600 font-bold min-h-6">
+    <div data-timestamp-target="display" class="text-lg text-blue-600 font-bold min-h-6">
       <% if @status == 1 %>
         เข้างานเมื่อ: <%= @today_check.check_in_at.strftime("%H:%M") %>
       <% elsif @status == 2 %>
@@ -43,24 +43,24 @@
 
   <div class="w-12"></div>
 
-  <div class="max-w-md w-full text-center space-y-8 p-10 bg-white rounded-2xl shadow-xl border border-gray-100">
-    <h2 class="text-2xl font-extrabold text-black">คำนวณเงินได้รายเดือน</h2>
+  <div class="max-w-md w-full text-center space-y-8 p-10 rounded-2xl shadow-xl border border-gray-100">
+    <h2 class="text-2xl font-extrabold">คำนวณเงินได้รายเดือน</h2>
     
     <div class="text-left w-full space-y-4">
       <%= render "employee/form" %>
 
-      <h2 class="mt-4 font-bold text-gray-800">เงินค่า OT รวม:</h2>
-      <div data-income-target="otPay" class="text-lg font-mono">
+      <h2 class="font-bold">เงินค่า OT รวม:</h2>
+      <div data-income-target="otPay">
         0.00 บาท
       </div>
 
-      <h2 class="mt-4 font-bold text-gray-800">ภาษีที่หัก:</h2>
-      <div data-income-target="taxAmount" class="text-lg font-mono">
+      <h2 class="font-bold">ภาษีที่หัก:</h2>
+      <div data-income-target="taxAmount">
         0.00 บาท
       </div>
 
-      <h2 class="mt-4 font-bold text-gray-800">เงินเดือนรวมที่จะได้รับ:</h2>
-      <div data-income-target="totalIncome" class="text-2xl font-bold">
+      <h2 class="font-bold">เงินเดือนรวมที่จะได้รับ:</h2>
+      <div data-income-target="totalIncome" class="text-2xl">
         0.00 บาท
       </div>
 

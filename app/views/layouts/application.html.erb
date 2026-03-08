@@ -13,11 +13,11 @@
   <body class="<%= controller_name == 'portal' ? 'bg-blue-500' : 'bg-gray-50' %>">
     
     <% unless controller_name == 'portal' %>
-      <nav class="bg-white border-b border-gray-200 fixed top-0 w-full z-50 shadow-sm">
+      <nav class="border-b border-gray-200 fixed top-0 w-full z-50 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex justify-between h-16">
             <div class="flex">
-              <div class="flex-shrink-0 flex items-center">
+              <div class="shrink-0 flex items-center">
                 <a class="text-xl font-bold text-blue-600">บริษัท แจ่มแมว จำกัด</a>
               </div>
             </div>
@@ -33,7 +33,7 @@
                 <% end %>
               </span>
 
-              <%= link_to root_path, class: "flex justify-center py-1.5 px-3 border border-blue-500 text-xs font-bold rounded-lg text-blue-500 bg-transparent hover:bg-red-50 transition-colors" do %>
+              <%= link_to root_path, class: "flex justify-center py-1.5 px-3 border border-blue-500 text-xs font-bold rounded-lg text-blue-500 bg-transparent hover:bg-blue-50 transition-colors" do %>
                 ออกจากระบบ
               <% end %>
             </div>
