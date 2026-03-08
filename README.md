@@ -1,6 +1,9 @@
 # Readme
 
-🚀 ระบบจัดการพนักงานของบริษัท แจ่มแมว จำกัด
+Create by Pacharawit Pluwan
+
+ใช้ Gemini ในการช่วยเขียนในส่วนของการ migrate database และช่วยเขียน logic ในการคำนวณรายได้
+ใช้ Copilot ในการช่วยเขียน Unit test
 
 วิธีรัน
 
