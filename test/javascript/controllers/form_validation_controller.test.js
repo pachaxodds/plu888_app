@@ -1,27 +1,3 @@
-/**
- * Form Validation Controller - Unit Tests
- *
- * This test suite validates the FormValidationController behavior.
- * To run these tests, you'll need to set up a test environment with:
- *
- * 1. Install dependencies:
- *    npm install --save-dev jest @babel/preset-env jsdom
- *
- * 2. Create jest.config.js in the project root:
- *    module.exports = {
- *      testEnvironment: 'jsdom',
- *      transform: {
- *        '^.+\\.js$': 'babel-jest',
- *      },
- *    };
- *
- * 3. Update package.json with test script:
- *    "test": "jest"
- *
- * 4. Run tests:
- *    npm test
- */
-
 import FormValidationController from "../../../app/javascript/controllers/form_validation_controller";
 
 describe("FormValidationController", () => {
@@ -32,7 +8,6 @@ describe("FormValidationController", () => {
   let element;
 
   beforeEach(() => {
-    // Create a mock Stimulus element
     element = document.createElement("div");
 
     nameInput = document.createElement("input");
@@ -54,7 +29,6 @@ describe("FormValidationController", () => {
 
     document.body.appendChild(element);
 
-    // Instantiate the controller
     controller = new FormValidationController(element);
     controller.nameTarget = nameInput;
     controller.roleTarget = roleInput;
@@ -229,11 +203,9 @@ describe("FormValidationController", () => {
 
   describe("Multiple Validations", () => {
     it("should handle rapid consecutive validation calls", () => {
-      // Fill both fields
       nameInput.value = "John Doe";
       roleInput.value = "Manager";
 
-      // Call validate multiple times
       controller.validate();
       controller.validate();
       controller.validate();
@@ -242,22 +214,18 @@ describe("FormValidationController", () => {
     });
 
     it("should handle toggling between valid and invalid states", () => {
-      // Start with empty
       controller.validate();
       expect(submitButton.disabled).toBe(true);
 
-      // Fill fields
       nameInput.value = "Test";
       roleInput.value = "Tester";
       controller.validate();
       expect(submitButton.disabled).toBe(false);
 
-      // Clear one field
       nameInput.value = "";
       controller.validate();
       expect(submitButton.disabled).toBe(true);
 
-      // Fill both again
       nameInput.value = "Test";
       controller.validate();
       expect(submitButton.disabled).toBe(false);

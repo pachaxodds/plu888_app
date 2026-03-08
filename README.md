@@ -27,8 +27,8 @@ Password: password
 Database: plu888-app
 ```
 
-4. รัน test
+4. รัน unit test
 
 ```
-bin/rails test
+npm test
 ```
