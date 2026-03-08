@@ -26,3 +26,9 @@ User: plu888
 Password: password
 Database: plu888-app
 ```
+
+4. รัน test
+
+```
+bin/rails test
+```
