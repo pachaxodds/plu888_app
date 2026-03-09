@@ -41,7 +41,7 @@ gem "thruster", require: false
 gem "pg"
 
 group :test do
-  gem "minitest", "~> 5.0", "< 6.0"
+  gem "minitest", "~> 6.0"
 end
 
 group :development, :test do
